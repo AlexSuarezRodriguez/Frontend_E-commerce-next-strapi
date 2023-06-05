@@ -36,3 +36,5 @@ app/next-env.d.ts
 
 #package
 app/package-lock.json
+
+app/yarn.lock
