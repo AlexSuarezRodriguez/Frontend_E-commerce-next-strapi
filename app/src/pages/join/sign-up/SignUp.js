@@ -1,12 +1,18 @@
-import React from 'react'
-import styles from "./SignUp.module.scss"
+import React from "react";
+import styles from "./SignUp.module.scss";
+import {JoinLayout} from "@/layouts";
 
-const SignIn = () => {
+
+const SignUp = () => {
   return (
-    <div>
-      <h3 className={styles.signIn}>Registrarse</h3>
-    </div>
-  )
-}
+    <>
+      <JoinLayout>
+        <div>
+          <h3 className={styles.SignUp}>Crear cuenta</h3>
+        </div>
+      </JoinLayout>
+    </>
+  );
+};
 
-export default SignIn
+export default SignUp;
