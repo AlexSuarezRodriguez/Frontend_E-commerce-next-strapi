@@ -17,7 +17,7 @@ export function RegisterForm() {
     onSubmit: async (formValue) => {
       try {
         await authCtrl.register(formValue);
-        setTimeout(()=>router.push("/join/sign-in"),1000)
+        router.push("/join/sign-in")
         
       } catch (error) {
         console.error(error);

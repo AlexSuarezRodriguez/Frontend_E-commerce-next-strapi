@@ -12,14 +12,26 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(null);
 
   useEffect(() => {
-    setLoading(false);
+    (async () => {
+      const token = tokenCtrl.getToken();
+      if (!token) {
+        logout();
+        setLoading(false);
+        return;
+      }
+      if (tokenCtrl.hasExpired(token)) {
+        logout();
+      } else {
+        await login(token);
+      }
+    })();
   }, []);
 
   const login = async (token) => {
     try {
       tokenCtrl.setToken(token);
-      const response = await userCtrl.getMe()
-      console.log(response)
+      const response = await userCtrl.getMe();
+      console.log(response);
       setUser(response);
       setToken(token);
       setLoading(false);
@@ -29,11 +41,16 @@ export function AuthProvider({ children }) {
     }
   };
 
+  const logout = () => {
+    tokenCtrl.removeToken();
+    setToken(null);
+    setUser(null);
+  };
   const data = {
     accessToken: token,
     user,
     login,
-    logout: null,
+    logout,
     updateUser: null,
   };
 
