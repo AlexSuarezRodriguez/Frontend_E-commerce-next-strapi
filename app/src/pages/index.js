@@ -7,7 +7,7 @@ const index = () => {
       <h2>shop</h2>
       <Button primary>Primary</Button>
     </div>
-  );
-};
+  )
+}
 
 export default index;
