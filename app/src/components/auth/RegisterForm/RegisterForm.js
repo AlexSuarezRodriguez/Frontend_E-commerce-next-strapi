@@ -2,14 +2,26 @@ import React from "react";
 import { Form } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { initialValues, validationSchema } from "./RegisterForm.form";
+import { Auth } from "@/api";
+import { useRouter } from "next/router";
+
+const authCtrl = new Auth();
 
 export function RegisterForm() {
+  const router = useRouter();
+
   const formik = useFormik({
     initialValues: initialValues(),
     validationSchema: validationSchema(),
     validateOnChange: false,
-    onSubmit: (formValue) => {
-      console.log(formValue);
+    onSubmit: async (formValue) => {
+      try {
+        await authCtrl.register(formValue);
+        setTimeout(()=>router.push("/join/sign-in"),1000)
+        
+      } catch (error) {
+        console.error(error);
+      }
     },
   });
 
