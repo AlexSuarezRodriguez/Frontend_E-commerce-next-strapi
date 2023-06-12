@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./TopBar.module.scss";
 import { Image } from "semantic-ui-react";
 import Link from "next/link";
-import { Account } from "../Account";
+import { Account, Menu } from "@/components/layout";
 
 export function TopBar({ isOpenSearch }) {
   return (
@@ -13,7 +13,7 @@ export function TopBar({ isOpenSearch }) {
         </Link>
       </div>
       <div className={styles.center}>
-        <span>MENU</span>
+        <Menu isOpenSearch={isOpenSearch}/>
       </div>
       <div className={styles.right}>
         <Account/>

@@ -7,6 +7,7 @@ export const ENV = {
       LOGIN: "api/auth/local",
     },
     USERS_ME: "api/users/me",
+    PLATFORM:"api/platforms"
   },
   TOKEN: "token",
 };
