@@ -5,6 +5,7 @@ import { BasicLayout } from "@/layouts";
 import { useAuth } from "@/hooks";
 import { Info,Settings } from "@/components/Account";
 import styles from "./account.module.scss";
+import {Separator} from "@/components/shared";
 
 export default function AccountPage() {
   const { user, logout } = useAuth();
@@ -37,6 +38,7 @@ export default function AccountPage() {
       render: () => (
       <Tab.Pane attached={false} key={99}>
         <Settings.ChangeNameForm/>
+        <Separator height={80}/>
       </Tab.Pane>),
     },
     {

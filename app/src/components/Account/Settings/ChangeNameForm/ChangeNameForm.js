@@ -18,8 +18,8 @@ export function ChangeNameForm() {
     validateOnChange: false,
     onSubmit: async (formValue) => {
       try {
-        // await userCtrl.updateMe(user.id, formValue);
-        // formulario para enviar
+        await userCtrl.updateMe(user.id, formValue);
+
       } catch (error) {
         console.error(error);
       }
