@@ -3,7 +3,7 @@ import { Tab } from "semantic-ui-react";
 import { useRouter } from "next/router";
 import { BasicLayout } from "@/layouts";
 import { useAuth } from "@/hooks";
-import { Info,Settings } from "@/components/Account";
+import { Info,Settings, Address } from "@/components/Account";
 import styles from "./account.module.scss";
 import {Separator} from "@/components/shared";
 
@@ -31,7 +31,10 @@ export default function AccountPage() {
     },
     {
       menuItem: "Direcciones",
-      render: () => <Tab.Pane attached={false}>Direcciones</Tab.Pane>,
+      render: () => <Tab.Pane attached={false}>
+        <Address.AddAddress/>
+        <Separator height={80}/>
+      </Tab.Pane>,
     },
     {
       menuItem: { key: 20, icon: "settings", content: "Ajustes" },
