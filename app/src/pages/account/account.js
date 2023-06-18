@@ -38,6 +38,9 @@ export default function AccountPage() {
       render: () => (
       <Tab.Pane attached={false} key={99}>
         <Settings.ChangeNameForm/>
+        <div className={styles.containerForms}>
+          <Settings.ChangeEmailForm/>
+        </div>
         <Separator height={80}/>
       </Tab.Pane>),
     },
