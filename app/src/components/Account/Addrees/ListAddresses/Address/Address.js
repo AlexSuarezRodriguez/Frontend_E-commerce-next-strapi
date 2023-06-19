@@ -28,10 +28,10 @@ export function Address(props) {
     <>
       <div className={styles.address}>
         <div>
-          <p className={styles.title}>{address.title}: </p>
-          <p className={styles.addressInfo}>
-            {address.name}, {address.address}, {address.state}, {address.city},{" "}
-            {address.postal_code}
+          <p className={styles.title}>{address?.title}: </p>
+          <p className={styles?.addressInfo}>
+            {address?.name}, {address?.address}, {address?.state},{" "}
+            {address?.city}, {address.postal_code}
           </p>
         </div>
 
@@ -45,25 +45,29 @@ export function Address(props) {
         </div>
       </div>
 
-      <Confirm
-        open={showConfirm}
-        onCancel={openCloseConfirm}
-        onConfirm={onDelete}
-        content="¿Estas seguro de que quieres eliminar la dirección?"
-      />
-
-      <BasicModal
-        show={showEdit}
-        onClose={openCloseEdit}
-        title="Editar dirección"
-      >
-        <AddressForm
-          onClose={openCloseEdit}
-          onReload={onReload}
-          addressId={addressId}
-          address={address}
+      {showConfirm && (
+        <Confirm
+          open={showConfirm}
+          onCancel={openCloseConfirm}
+          onConfirm={onDelete}
+          content="¿Estas seguro de que quieres eliminar la dirección?"
         />
-      </BasicModal>
+      )}
+
+      {showEdit && (
+        <BasicModal
+          show={showEdit}
+          onClose={openCloseEdit}
+          title="Editar dirección"
+        >
+          <AddressForm
+            onClose={openCloseEdit}
+            onReload={onReload}
+            addressId={addressId}
+            address={address}
+          />
+        </BasicModal>
+      )}
     </>
   );
 }

@@ -7,8 +7,7 @@ import styles from "./ListAddresses.module.scss";
 
 const addressCtrl = new AddressCtrl();
 
-export function ListAddresses(props) {
-  const { reload, onReload } = props;
+export function ListAddresses({ reload, onReload } ) {
   const [addresses, setAddresses] = useState(null);
   const { user } = useAuth();
 

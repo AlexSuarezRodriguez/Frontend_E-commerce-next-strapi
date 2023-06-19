@@ -6,6 +6,7 @@ import { useAuth } from "@/hooks";
 import { Info,Settings, Address } from "@/components/Account";
 import styles from "./account.module.scss";
 import {Separator} from "@/components/shared";
+import { AddAddress } from "@/components/Account/Addrees/AddAddress";
 
 export default function AccountPage() {
   const { user, logout } = useAuth();
@@ -32,7 +33,8 @@ export default function AccountPage() {
     {
       menuItem: "Direcciones",
       render: () => <Tab.Pane attached={false}>
-        <Address.AddAddress/>
+        <Address.AddAddress onReload={onReload}/>
+        <Address.ListAddresses reload={reload} onReload={onReload} />
         <Separator height={80}/>
       </Tab.Pane>,
     },

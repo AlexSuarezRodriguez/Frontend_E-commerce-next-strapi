@@ -4,11 +4,11 @@ import { BasicModal } from "@/components/shared";
 import { AddressForm } from "../AddressForm";
 import styles from "./AddAddress.module.scss";
 
-export function AddAddress(props) {
-  const { onReload } = props;
+export function AddAddress({ onReload }) {
+
   const [show, setShow] = useState(false);
 
-  const onOpenClose = () => setShow((prevState) => !prevState);
+  const onOpenClose = () => setShow(!show);
 
   return (
     <>
