@@ -1,10 +1,20 @@
 import React from "react";
-import {BasicLayout} from "@/layouts"
+import { BasicLayout } from "@/layouts";
+import { Home } from "@/components/Home";
+import { Separator } from "@/components/shared";
+import { Container } from "semantic-ui-react";
 
 export default function HomePage() {
   return (
-    <BasicLayout>
-      <h1 style={{paddingTop:100}}>Home</h1>
-    </BasicLayout>
+    <>
+      <BasicLayout>
+        <Home.BannerLastGamePublished />
+        <Separator height={100} />
+
+        <Container>
+          <Home.LatestGames title="Ultimos lanzamientos" />
+        </Container>
+      </BasicLayout>
+    </>
   );
 }

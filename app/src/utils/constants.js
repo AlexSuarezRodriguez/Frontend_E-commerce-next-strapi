@@ -10,6 +10,7 @@ export const ENV = {
     USERS: "api/users",
     PLATFORM: "api/platforms",
     ADDRESS: "api/addresses",
+    GAME: "api/games",
   },
   TOKEN: "token",
 };
