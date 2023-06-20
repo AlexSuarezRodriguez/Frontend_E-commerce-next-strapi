@@ -4,7 +4,7 @@ import { GridGames } from "@/components/shared";
 
 const gameCtrl = new Game();
 
-export function LatestGames({ title, limit = 9, platformId = null }) {
+export function LatestGames({ title, limit , platformId }) {
 
   const [games, setGames] = useState(null);
 
@@ -12,8 +12,8 @@ export function LatestGames({ title, limit = 9, platformId = null }) {
     (async () => {
       try {
         const response = await gameCtrl.getLatestPublished({
-          limit,
-          platformId,
+          limit:limit ?? 9,
+          platformId:platformId ?? null,
         });
         setGames(response.data);
       } catch (error) {
