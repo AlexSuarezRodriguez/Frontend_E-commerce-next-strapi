@@ -1,7 +1,7 @@
 import React from "react";
 import { BasicLayout } from "@/layouts";
 import { Home } from "@/components/Home";
-import { Separator, BarTrust } from "@/components/shared";
+import { Separator, BarTrust, BannerAd } from "@/components/shared";
 import { Container } from "semantic-ui-react";
 
 const platformsId = {
@@ -30,10 +30,34 @@ export default function HomePage() {
         <Separator height={100} />
 
         <Container>
-          <Home.LatestGames title="XBOX" limit={3} platformId={platformsId.xbox}/>
+          <Home.LatestGames
+            title="XBOX"
+            limit={3}
+            platformId={platformsId.xbox}
+          />
         </Container>
 
         <Separator height={100} />
+
+        <BannerAd
+          title="Registrate y obten los mejores precios"
+          subtitle="¡Compara con otros juegos y elige el tuyo!"
+          btnTitle="Entrar ahora"
+          btnLink="/account"
+          image="/images/dino_512.png"
+        />
+        <Separator height={50} />
+
+        <Container>
+          <Home.LatestGames
+            title="Play Station"
+            limit={3}
+            platformId={platformsId.playstation}
+          />
+        </Container>
+
+        <Separator height={50} />
+
       </BasicLayout>
     </>
   );
